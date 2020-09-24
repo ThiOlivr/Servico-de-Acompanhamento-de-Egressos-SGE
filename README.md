@@ -1,2 +1,2 @@
 # Servico-de-Acompanhamento-de-Egressos-SGE
-TCC
+TRABALHO DE CONCLUSÃO DE CURSO
