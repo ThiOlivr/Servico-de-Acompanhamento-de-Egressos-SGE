@@ -23,8 +23,13 @@ class CadastroEgresso (models.Model):
 	]
 
 	CURSO_CHOICES = [
-			('BCC', 'Bach. Ciência da Computação'),
-			('PPGCC', 'Pós-Graduação em Ciência da Computação'),
+		('BCC', 'Bach. Ciência da Computação'),
+		('PPGCC', 'Pós-Graduação em Ciência da Computação'),
+	]
+
+	PERIODO_CHOICES = [
+		('20201', '2020.1'),
+		('20202', '2020.2'),
 	]
 
 	NATUREZA_CHOICES = [
@@ -52,12 +57,11 @@ class CadastroEgresso (models.Model):
 	site = models.CharField(max_length=45, null = True)
 	#Dados Acadêmicos
 	curso = models.CharField(max_length=5, choices=CURSO_CHOICES, blank=False)
-	anoConclusao = models.IntegerField(null = True, blank = True)
+	anoPeriodo = models.CharField(max_length=5, choices=PERIODO_CHOICES, null=False, blank=False)
 	tituloTrabalho =  models.CharField(max_length= 100)
 	#Dados Profissionais
 	areaAtuacao = models.CharField(max_length=50, null=True, blank=True)
 	naturezaOcupacao = models.CharField(max_length=2, choices=NATUREZA_CHOICES, null=True, blank=True)
-	anoOcupacaoInicio = models.IntegerField(null = True, blank = True)
 	#Relatos
 	sugestao = models.TextField(null=False, blank=False)
 	depoimento = models.TextField(null=False, blank=False) 
