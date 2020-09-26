@@ -32,17 +32,6 @@ class CadastroEgresso (models.Model):
 		('20202', '2020.2'),
 	]
 
-	NATUREZA_CHOICES = [
-		('SP', 'Setor Público'),
-		('SP', 'Setor Privado'),
-		('TS', 'Terceiro Setor - organizações sem fins lucrativos'),
-		('PL', 'Profissional Liberal'),
-		('FL', 'Freelancer'),
-		('BT', 'Bolsista'),
-		('MT', 'Militar'),
-		('OI', 'Organismo Internacional'),
-	]
-
 	#Dados Pessoais
 	cpf = models.CharField(max_length=14, null=False, blank=False, primary_key=True)
 	nome = models.CharField(max_length=45, null=False, blank=False)
@@ -60,8 +49,9 @@ class CadastroEgresso (models.Model):
 	anoPeriodo = models.CharField(max_length=5, choices=PERIODO_CHOICES, null=False, blank=False)
 	tituloTrabalho =  models.CharField(max_length= 100)
 	#Dados Profissionais
-	areaAtuacao = models.CharField(max_length=50, null=True, blank=True)
-	naturezaOcupacao = models.CharField(max_length=2, choices=NATUREZA_CHOICES, null=True, blank=True)
+	opcaoMercado = models.CharField(max_length=2, blank=False)
+	areaAtuacao = models.CharField(max_length=5, null=True, blank=True)
+	formaTrabalho = models.CharField(max_length=2, null=True, blank=True)
 	#Relatos
 	sugestao = models.TextField(null=False, blank=False)
 	depoimento = models.TextField(null=False, blank=False) 
