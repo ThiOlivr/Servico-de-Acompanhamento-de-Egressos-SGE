@@ -17,6 +17,7 @@ def cadastroEgresso(request):
 	formEgresso = CadastroEgressoForm()
 	if request.method == "POST":
 		formEgresso = CadastroEgressoForm(request.POST)
+
 		if formEgresso.is_valid():
 			formEgresso.save()
 			messages.success(request, 'Formulário enviado com sucesso!')
@@ -27,7 +28,6 @@ def cadastroEgresso(request):
 	else:
 		context = {'formEgresso': formEgresso}
 		return render (request, 'app/form_egresso.html', context)
-
 
 def dashboard(request):
 
