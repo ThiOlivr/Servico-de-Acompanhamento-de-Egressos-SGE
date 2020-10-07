@@ -47,11 +47,13 @@ class CadastroEgresso (models.Model):
 	#Dados Acadêmicos
 	curso = models.CharField(max_length=5, choices=CURSO_CHOICES, blank=False)
 	anoPeriodo = models.CharField(max_length=5, choices=PERIODO_CHOICES, null=False, blank=False)
-	tituloTrabalho =  models.CharField(max_length= 100)
+	outraFormacao = models.CharField(max_length=3, null=False, blank= False)
+	outraFormacaoInfo = models.CharField(max_length=50, null=True, blank=True)
+	ingressoPos = models.CharField(max_length=20, null=False, blank=False)
 	#Dados Profissionais
 	opcaoMercado = models.CharField(max_length=2, blank=False)
-	areaAtuacao = models.CharField(max_length=5, null=True, blank=True)
-	formaTrabalho = models.CharField(max_length=2, null=True, blank=True)
+	areaAtuacao = models.CharField(max_length=8, null=False, blank=False)
+	formaTrabalho = models.CharField(max_length=2, null=False, blank=False)
 	#Relatos
 	sugestao = models.TextField(null=False, blank=False)
 	depoimento = models.TextField(null=False, blank=False) 

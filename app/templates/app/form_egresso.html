@@ -10,15 +10,16 @@
 			<div class="card"  style="width: 25rem;">
 				<div class="card card-body">
 					<h5 class="card-title">Dados Pessoais</h5>
-					<p class="card-text">Nome: {{formEgresso.nome}}</p>
-					<p class="card-text">CPF: {{formEgresso.cpf}}</p>
-					<p class="card-text">Sexo: {{formEgresso.sexo}}</p>
+					<p class="card-text">Nome: {{ formEgresso.nome }}</p>
+					<p class="card-text">CPF: {{ formEgresso.cpf }}</p>
+					<p class="card-text">Sexo: {{ formEgresso.sexo }}</p>
 					<p class="card-text">Data de Nascimento: {{formEgresso.dataNascimento}}</p>
 
 					<h6 class="card-text">Onde reside atualmente? </h6>
-					<p class="card-text">País: {{formEgresso.pais}}</p>
-					<p class="card-text">Estado: {{formEgresso.estado}}</p>
-					<p class="card-text">Cidade: {{formEgresso.cidade}}</p>
+					<p class="card-text">País: {{ formEgresso.pais }}</p>
+					<p class="card-text">Estado: {{ formEgresso.estado }}</p>
+					<p class="card-text">Cidade: {{ formEgresso.cidade }}</p>
+					<p>{{ formEgresso.country }}</p>
 				</div>
 			</div>
 		</div>
@@ -29,9 +30,9 @@
 			<div class="card" style="width: 25rem;">
 				<div class="card card-body">
 					<h5 class="card-title">Informações de contato</h5>
-					<p class="card-text">Email: {{formEgresso.email}}</p>
-					<p class="card-text">Telefone: {{formEgresso.telefone}}</p>
-					<p class="card-text">Site: {{formEgresso.site}}</p>
+					<p class="card-text">Email: {{ formEgresso.email }}</p>
+					<p class="card-text">Telefone: {{ formEgresso.telefone }}</p>
+					<p class="card-text">Site: {{ formEgresso.site }}</p>
 				</div>
 			</div>
 		</div>
@@ -42,10 +43,15 @@
 			<div class="card" style="width: 25rem;">
 				<div class="card card-body">
 					<h5 class="card-title">Informações acadêmicas</h5>
-					<p class="card-text">Curso: {{formEgresso.curso}}</p>
-					<p class="card-text">Título da monografia/dissertação: {{formEgresso.tituloTrabalho}}</p>
-					<p class="card-text">Ano de conclusão: {{formEgresso.anoPeriodo}}</p>
-
+					<p class="card-text">Curso: {{ formEgresso.curso }}</p>
+					<p class="card-text">Título da monografia/dissertação: {{ formEgresso.tituloTrabalho }}</p>
+					<p class="card-text">Ano de conclusão: {{ formEgresso.anoPeriodo }}</p>
+					<p class="card-text">Possui outra graduação? {{ formEgresso.outraFormacao }}</p>
+					<!-- Campo Condicinal -->
+					<p class="card-text">Qual? {{ formEgresso.outraFormacaoInfo }}</p> 
+					<!-- Campo Condicionado a pergunta anterior -->
+					<p class="card-text">Prentende ingressar em uma Pós-Graduação? {{ formEgresso.ingressoPos }}</p>
+					
 				</div>
 			</div>
 		</div>
@@ -56,10 +62,9 @@
 			<div class="card" style="width: 25rem;">
 				<div class="card card-body">
 					<h5 class="card-title">Informações Profissionais: </h5>
-					<p class="card-text">Qual à sua situação no mercado de trabalho?</p>
-					{{formEgresso.opcaoMercado}}
-					<p class="card-text">Área de atuação: {{formEgresso.areaAtuacao}}</p>	
-					<p class="card-text">Natureza da ocupação: {{formEgresso.formaTrabalho}}</p>
+					<p class="card-text">Qual à sua situação no mercado de trabalho? {{ formEgresso.opcaoMercado }}</p>
+					<p class="card-text">Área de atuação: {{ formEgresso.areaAtuacao }}</p>	
+					<p class="card-text">Natureza da ocupação: {{ formEgresso.formaTrabalho }}</p>
 				</div>
 			</div>
 		</div>

@@ -1,6 +1,12 @@
 from django import forms
+
+#My imports here
 from .models import CadastroEgresso
 
+YES_NO_CHOICES = [
+	('nao', 'Não'),
+	('sim', 'Sim'),
+]
 
 MERCADO_CHOICES = [
 	('AF', 'Atuo na minha área de formação'),
@@ -11,7 +17,6 @@ MERCADO_CHOICES = [
 ]
 
 AREA_CHOICES = [
-	('', '-------'), #Depois analisar se não há um jeito melhor de implementar
 	('EngApp', 'Engenheiro de Aplicativos em Computação'),
 	('EngEquip', 'Engenheiro de Equipamentos em Computação'),
 	('EngSO', 'Engenheiros de Sistemas Operacionais em Computação'),
@@ -25,21 +30,32 @@ AREA_CHOICES = [
 	('AnalSC', 'Analista de Suporte Computacional'),
 	('AnalTI', 'Analista de Testes de Tecnologia da Informação'),
 	('ArqTI', 'Arquiteto de Soluções de Tecnologia da Informação'),
+	('Não atuo na área', 'Não trabalho na área de Ciência da Computação'),
 ]
 
 TRABALHO_CHOICES = [
-		('autonomo', 'Autônomo'),
-		('empregado', 'Empregado'),
-		('servidor', 'Servidor Público'),
-		('empresario', 'Empresário'),
-		('outro', 'Outro')
+	('autonomo', 'Autônomo'),
+	('empregado', 'Empregado'),
+	('servidor', 'Servidor Público'),
+	('empresario', 'Empresário'),
+	('outro', 'Outro')
 	]
 
-class CadastroEgressoForm(forms.ModelForm):
+INGRESSO_CHOICES = [
+	('Sim, na área de Ciência da Computação', 'Sim, na área de Ciência da Computação'),
+	('Sim, em uma área diferente', 'Sim, em uma área diferente'),
+	('Não, estou com outras ideias para minha vida', 'Não, estou com outras ideias para minha vida')
+]
 
+class CadastroEgressoForm(forms.ModelForm):
+	#Dados Acadêmicos
+	outraFormacao = forms.ChoiceField(choices=YES_NO_CHOICES, widget=forms.RadioSelect())
+	#Dados Profissionais
 	opcaoMercado = forms.ChoiceField(choices=MERCADO_CHOICES, widget=forms.RadioSelect())
-	areaAtuacao = forms.ChoiceField(choices=AREA_CHOICES, widget=forms.Select())
+	areaAtuacao = forms.ChoiceField(choices=AREA_CHOICES, widget=forms.RadioSelect())
 	formaTrabalho = forms.ChoiceField(choices=TRABALHO_CHOICES, widget=forms.RadioSelect())
+	ingressoPos = forms.ChoiceField(choices=INGRESSO_CHOICES, widget=forms.RadioSelect())
+
 	class Meta:
 		model = CadastroEgresso
 		fields =  '__all__'
