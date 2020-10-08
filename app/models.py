@@ -1,5 +1,9 @@
 from django.db import models
-#from datetime import date
+
+#Parâmetro de tradução para utilizãção do CountryField
+def foo_bar(language):
+   	translation.activate(language)
+   	return [(translation.gettext(country.name), country.code) for country in countries]
 
 # Create your models here.
 
@@ -7,12 +11,6 @@ class CadastroEgresso (models.Model):
 	SEXO_CHOICES = [
 		('M', 'Masculino'),
 		('F', 'Feminino' ),
-	]
-
-	PAIS_CHOICES = [
-		('BR', 'Brasil'),
-		('FR', 'França'),
-		('CA', 'Canadá'),
 	]
 
 	ESTADO_CHOICES = [
@@ -37,7 +35,7 @@ class CadastroEgresso (models.Model):
 	nome = models.CharField(max_length=45, null=False, blank=False)
 	sexo = models.CharField(max_length=1, choices=SEXO_CHOICES, null=False, blank=False)
 	dataNascimento = models.DateField(null=True, blank=False)
-	pais = models.CharField(max_length=2, choices=PAIS_CHOICES, null=False, blank=False)
+	pais = models.CharField(max_length=2, null=False, blank=False)
 	estado = models.CharField(max_length=2, choices=ESTADO_CHOICES, null=False, blank=False)
 	cidade = models.CharField(max_length=30, null=False, blank=False)
 	#Contatos
@@ -60,3 +58,5 @@ class CadastroEgresso (models.Model):
 
 	def __str__(self):
 		return self.nome
+
+	

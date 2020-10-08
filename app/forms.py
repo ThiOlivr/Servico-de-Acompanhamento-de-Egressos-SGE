@@ -1,5 +1,9 @@
 from django import forms
-
+#Bibliotecas Country
+from django_countries.fields import CountryField
+from django_countries.widgets import CountrySelectWidget
+#Bilioteca LocalFlavor
+from django.contrib.localflavor
 #My imports here
 from .models import CadastroEgresso
 
@@ -38,7 +42,6 @@ TRABALHO_CHOICES = [
 	('empregado', 'Empregado'),
 	('servidor', 'Servidor Público'),
 	('empresario', 'Empresário'),
-	('outro', 'Outro')
 	]
 
 INGRESSO_CHOICES = [
@@ -48,6 +51,9 @@ INGRESSO_CHOICES = [
 ]
 
 class CadastroEgressoForm(forms.ModelForm):
+	#Dados Pessoais
+	pais = CountryField().formfield(widget=CountrySelectWidget())
+	dataNascimento = generic.forms.DateField()
 	#Dados Acadêmicos
 	outraFormacao = forms.ChoiceField(choices=YES_NO_CHOICES, widget=forms.RadioSelect())
 	#Dados Profissionais
