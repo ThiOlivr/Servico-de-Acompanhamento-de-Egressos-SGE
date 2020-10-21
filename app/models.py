@@ -1,5 +1,5 @@
 from django.db import models
-
+from django_countries.fields import CountryField
 #Parâmetro de tradução para utilizãção do CountryField
 def foo_bar(language):
    	translation.activate(language)
@@ -34,8 +34,8 @@ class CadastroEgresso (models.Model):
 	cpf = models.CharField(max_length=14, null=False, blank=False, primary_key=True)
 	nome = models.CharField(max_length=45, null=False, blank=False)
 	sexo = models.CharField(max_length=1, choices=SEXO_CHOICES, null=False, blank=False)
-	dataNascimento = models.DateField(null=True, blank=False)
-	pais = models.CharField(max_length=2, null=False, blank=False)
+	#dataNascimento = models.DateField(null=True, blank=False)
+	#pais = CountryField()
 	estado = models.CharField(max_length=2, choices=ESTADO_CHOICES, null=False, blank=False)
 	cidade = models.CharField(max_length=30, null=False, blank=False)
 	#Contatos
@@ -47,11 +47,11 @@ class CadastroEgresso (models.Model):
 	anoPeriodo = models.CharField(max_length=5, choices=PERIODO_CHOICES, null=False, blank=False)
 	outraFormacao = models.CharField(max_length=3, null=False, blank= False)
 	outraFormacaoInfo = models.CharField(max_length=50, null=True, blank=True)
-	ingressoPos = models.CharField(max_length=20, null=False, blank=False)
+	ingressoPos = models.CharField(max_length=50, null=False, blank=False)
 	#Dados Profissionais
 	opcaoMercado = models.CharField(max_length=2, blank=False)
-	areaAtuacao = models.CharField(max_length=8, null=False, blank=False)
-	formaTrabalho = models.CharField(max_length=2, null=False, blank=False)
+	areaAtuacao = models.CharField(max_length=20, null=False, blank=False)
+	formaTrabalho = models.CharField(max_length=10, null=False, blank=False)
 	#Relatos
 	sugestao = models.TextField(null=False, blank=False)
 	depoimento = models.TextField(null=False, blank=False) 
