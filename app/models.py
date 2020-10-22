@@ -1,10 +1,5 @@
 from django.db import models
 from django_countries.fields import CountryField
-#Parâmetro de tradução para utilizãção do CountryField
-def foo_bar(language):
-   	translation.activate(language)
-   	return [(translation.gettext(country.name), country.code) for country in countries]
-
 # Create your models here.
 
 class CadastroEgresso (models.Model):
@@ -35,7 +30,7 @@ class CadastroEgresso (models.Model):
 	nome = models.CharField(max_length=45, null=False, blank=False)
 	sexo = models.CharField(max_length=1, choices=SEXO_CHOICES, null=False, blank=False)
 	#dataNascimento = models.DateField(null=True, blank=False)
-	#pais = CountryField()
+	pais = models.CharField(max_length=2, null=False, blank=False)
 	estado = models.CharField(max_length=2, choices=ESTADO_CHOICES, null=False, blank=False)
 	cidade = models.CharField(max_length=30, null=False, blank=False)
 	#Contatos
